@@ -13,7 +13,7 @@ const buildControls = (props)=>{
             <p>Your price is : <strong>{props.price.toFixed(2)*20}</strong></p>
                 {controls.map((ctrl)=>{
                     return <BuildControl 
-                    key = {ctrl} 
+                    key = {ctrl.lable} 
                     lable = {ctrl.lable} 
                     addedIngridient = {()=>props.addedIngridient(ctrl.type)}
                     removedIngridient = {()=>props.removedIngridient(ctrl.type)}

@@ -5,6 +5,7 @@ class BuildControl extends Component{
    
     shouldComponentUpdate(){
         console.log("component did update inside buidcontrol.js file")
+        return true;
     }
     render(){
         return(

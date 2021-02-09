@@ -3,11 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom"
+import {Provider} from "react-redux";
+import {createStore,compose,applyMiddleware,combineReducers} from "redux";
+import burgerRreducer from "./store/reducers/burgerBuilder"
+import orderReducer from "./store/reducers/Order"
+import thunk from "redux-thunk"
+
+const reducer = combineReducers({
+  burgerBuilder: burgerRreducer,
+  orders: orderReducer
+})
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer,composeEnhancers(
+    applyMiddleware(thunk)
+));
+
+const app = (
+  <Provider store = {store}>
+  <BrowserRouter>
+  <App/>
+  </BrowserRouter>
+  </Provider>
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ app,
   document.getElementById('root')
 );
 

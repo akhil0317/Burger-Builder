@@ -3,9 +3,14 @@ import classes from "./Modal.module.css"
 class Modal extends Component{
 
 componentDidUpdate(){
-    alert("component did update inside modal.js file")
-}
+   
     
+}
+ 
+shouldComponentUpdate(){
+  
+    return true;
+}
     render(){
         
         return (
